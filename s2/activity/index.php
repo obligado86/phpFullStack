@@ -13,14 +13,14 @@
 
 	<h1>Array manipulation</h1>
 	<?php array_push($student, 'john Smith');?>
-	<p><?php print_r($student) ;?></p>
+	<p><?php var_dump($student) ;?></p>
 
 	<?php echo count($student);?>
 	<?php array_push($student, 'jane Smith');?>
-	<p><?php print_r($student) ;?></p>
+	<p><?php var_dump($student) ;?></p>
 	<?php echo count($student);?>
 	<?php array_shift($student);?>
-	<p><?php print_r($student) ;?></p>
+	<p><?php var_dump($student) ;?></p>
 	<?php echo count($student);?>
 </body>
 </html>
