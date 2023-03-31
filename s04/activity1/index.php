@@ -7,20 +7,21 @@
 </head>
 <body>
 	<?php session_start();?>
-	<form method="POST" action="./server.php">
-		<input type="hidden" name="action" value="login">
-		<label for="email">Email:</label>
-		<input type="email" name="email" required>
-		<label for="password">Password:</label>
-		<input type="password" name="password" required>
-		<button type="submit">Login</button>
-	</form>
-	<?php if (isset($_SESSION['user'] === "isAuthorized")):?>
-		<?php echo user->welcome();?>
-	<form method="POST" action="./server.php">
-		<input type="hidden" name="action" value="logout">
-		<button type="submit">Logout</button>
-	</form>
+	<?php if (!isset($_SESSION['user'])):?>
+		<form method="POST" action="./server.php">
+			<input type="hidden" name="action" value="login">
+			<label for="email">Email:</label>
+			<input type="email" name="email" required>
+			<label for="password">Password:</label>
+			<input type="password" name="password" required>
+			<button type="submit">Login</button>
+		</form>
+	<?php elseif (isset($_SESSION['user'])):?>
+		<form method="POST" action="./server.php">
+			<p>Hello. <?php echo $_SESSION['email'];?></p>
+			<input type="hidden" name="action" value="logout">
+			<button type="submit">Logout</button>
+		</form>
 	<?php endif;?>
 </body>
 </html>
